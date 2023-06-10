@@ -34,6 +34,7 @@ public:
    // nextIndex++;  //
 
    nextIndex = (nextIndex+1)%capacity; // we must know capacity already for this
+   
    if(firstIndex == -1){
     firstIndex=0;
    }
