@@ -37,7 +37,7 @@ public:
 
 
        // Copy the data from the old array to the new array
-        int j;
+        int j = 0;
         for (int i = firstIndex; i < capacity; i++){
             newData[j] = data[i];
             j++;
@@ -51,8 +51,9 @@ public:
 
     // Delete the old array
         delete[] data;
+        data = newData;
 
-                data = newData;
+                
                 firstIndex=0;
                 nextIndex = capacity;
                 capacity = 2*capacity;
@@ -118,5 +119,7 @@ int main(){
     cout <<q.dequeue()<< endl;
     cout <<q.getSize()<< endl;
     cout <<q.isEmpty()<< endl;
+
+    return 0;
 }
 
