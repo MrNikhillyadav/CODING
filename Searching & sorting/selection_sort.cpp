@@ -6,7 +6,8 @@ void selectionSort(int input[], int n) {
 	// Find min element in the array
 	int min = input[i], minIndex = i;
 	for(int j = i+1; j < n; j++) {
-		if(input[j] < min) {
+			if(input[j] < min) {
+		/*!!!! updating min value and min index  !!!!*/
 			min = input[j];
 			minIndex = j;
 		}
@@ -27,3 +28,13 @@ int main() {
 	}
 	cout << endl;
 }
+/* 
+########## Crucial Points ##################
+
+	1. In beginning, we assume 1st element as 'min' & 0 as 'minIndex'.
+	2. Outer loop run form 0 to n-1.
+	3. for each element of i, inner loop 'j' run from 'i+1' to 'n' to find the 'min'.
+	4. if( arr[j] < min i.e. arr[i]) ,update 'minIndex' to 'j' & 'min' to 'arr[minIndex]'.
+	5. swap smallest element 'arr[minIndex]' with element at 'i' which is arr[i].
+	
+*/
