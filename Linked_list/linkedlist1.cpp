@@ -5,6 +5,7 @@ using namespace std;
 
  void print(Node *head){
 
+//   iterating over the linked list
     Node *temp = head;
     while(temp != NULL){
         cout<< temp -> data << " ";
