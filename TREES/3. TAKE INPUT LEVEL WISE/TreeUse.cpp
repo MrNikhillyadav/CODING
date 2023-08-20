@@ -1,9 +1,34 @@
-/* this code recursively takes input to build a tree and 
-	then prints the tree structure using recursive traversal.
-________________________________________________________________________________*/
 #include <iostream>
+#include <queue>
 #include "TreeNode.h"
 using namespace std;
+
+TreeNode<int>* takeInputLevelWise() {
+	int rootData;
+	cout << "Enter root data" << endl;
+	cin >> rootData;
+	TreeNode<int>* root = new TreeNode<int>(rootData);
+
+	queue<TreeNode<int>*> pendingNodes;
+	
+	pendingNodes.push(root);
+	while (pendingNodes.size() != 0) {
+		TreeNode<int>* front = pendingNodes.front();
+		pendingNodes.pop();
+		cout << "Enter num of children of " << front->data << endl;
+		int numChild;
+		cin >> numChild;
+		for (int i = 0; i < numChild; i++) {
+			int childData;
+			cout << "Enter " << i << "th child of " << front->data << endl;
+			cin >> childData;
+			TreeNode<int>* child = new TreeNode<int>(childData);
+			front->children.push_back(child);
+			pendingNodes.push(child);
+		}
+	}
+	return root;
+}
 
 TreeNode<int>* takeInput() {
 	int rootData;
@@ -14,29 +39,25 @@ TreeNode<int>* takeInput() {
 	int n;
 	cout << "Enter num of children of " << rootData << endl;
 	cin >> n;
-	
 	for (int i = 0; i < n; i++) {
-		TreeNode<int>* child = takeInput(); //Recursive call
+		TreeNode<int>* child = takeInput();
 		root->children.push_back(child);
 	}
 	return root;
 }
-//-----------------------------------------------------------------------------
+
 void printTree(TreeNode<int>* root) {
-	//Base case
 	if (root == NULL) {
 		return;
 	}
-	//Small work
+
 	cout << root->data << ":";
 	for (int i = 0; i < root->children.size(); i++) {
 		cout << root->children[i]->data << ",";
-		}
+	}
 	cout << endl;
-	
-	//Recursive call.
 	for (int i = 0; i < root->children.size() ; i++) {
-		printTree(root->children[i]);      
+		printTree(root->children[i]);
 	}
 }
 
@@ -47,10 +68,8 @@ int main() {
 	root->children.push_back(node1);
 	root->children.push_back(node2);
 	*/
-
-	TreeNode<int>* root = takeInput();
+	TreeNode<int>* root = takeInputLevelWise();
 	printTree(root);
-
 	// TODO delete the tree
 }
 
