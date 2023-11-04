@@ -1,7 +1,8 @@
-################################################################################################
++++++++++++++++++++++++++ IMPORTANT RESULTS +++++++++++++++++++++++++++++++++++++++
 
 1.             sort(arr,arr+n);
     can directly sort any given array.
+
 
 2.  min() & max() function can directly find min and max values.
 
@@ -12,13 +13,14 @@
                     large=max(large,arr[i]);
                 }  
 
+
 3. to find length of an array:
 
                 i. sizeof(arr)
                 ii. arr.size()
                 iii. arr.length;
 
-
+------------------------------------------------------------------------------------------
  4. Create a dynamic vector using the range constructor.
 
             The range constructor takes two iterators (begin and end) as arguments,
@@ -50,7 +52,8 @@
                 Here, "n" represents the length of the array.
 
 
-9.______N-O-T-E__________ P.A.T.T.E.R.N.  ____________________________________           
+(9*)______N-O-T-E__________ P.A.T.T.E.R.N.  ____________________________________    
+       
                 maxLen = max(maxLen, right - left + 1);
                 maxCount = max(maxCount,count);
 
